@@ -102,6 +102,7 @@ class TranslatorVC: UIViewController {
         let button = UIButton()
         button.setImage(UIImage(systemName: "xmark"), for: .normal)
         button.tintColor = .black
+        button.addTarget(nil, action: #selector(xBtnPressed), for: .touchUpInside)
         return button
     }()
     let translatorSubStackView: UIStackView = {
@@ -142,6 +143,7 @@ class TranslatorVC: UIViewController {
         let button = UIButton()
         button.setImage(UIImage(systemName: "star"), for: .normal)
         button.tintColor = .white
+        button.addTarget(nil, action: #selector(saveBtnPressed), for: .touchUpInside)
         return button
     }()
     let resultStackView: UIStackView = {
@@ -160,6 +162,7 @@ class TranslatorVC: UIViewController {
         return stackView
     }()
     let tableView = UITableView()
+    var uzbekToEnglish = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -171,25 +174,66 @@ class TranslatorVC: UIViewController {
             print(textField.text!)
         }
     }
+    
+    @objc func xBtnPressed() {
+        textField.text = ""
+        textField.resignFirstResponder()
+    }
+    
+    @objc func saveBtnPressed() {
+        
+    }
+    
+    @objc func switchLangBtnPressed() {
+        uzbekToEnglish = !uzbekToEnglish
+        updateUI()
+    }
 }
 
 //MARK: - Table View
 extension TranslatorVC: UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 12
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomCell
-        cell.updateCell(text: "Hello, how are you? - Salom, qandaysiz?")
+        cell.updateCell(text: "Test - Test")
         return cell
+    }
+}
+
+//MARK: - TextField Delegate
+extension TranslatorVC: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
     }
 }
 
 //MARK: - ConfigureUI
 extension TranslatorVC {
+    
+    func updateUI() {
+        if uzbekToEnglish {
+            langFirstLabel.text = "Uzbek"
+            translatorLabel.text = "Uzbek"
+            langSecondLabel.text = "English"
+            resultLangLabel.text = "English"
+        } else {
+            langFirstLabel.text = "English"
+            translatorLabel.text = "English"
+            langSecondLabel.text = "Uzbek"
+            resultLangLabel.text = "Uzbek"
+        }
+    }
+    
     func configureUI() {
         view.backgroundColor = #colorLiteral(red: 0.9333333373, green: 0.9333333373, blue: 0.9333333373, alpha: 1)
+        
+        textField.delegate = self
+        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(CustomCell.self, forCellReuseIdentifier: "cell")
