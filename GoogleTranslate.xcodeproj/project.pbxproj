@@ -8,22 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		041D4F97282C50C000868708 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041D4F96282C50C000868708 /* AppDelegate.swift */; };
-		041D4F99282C50C000868708 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041D4F98282C50C000868708 /* SceneDelegate.swift */; };
-		041D4F9B282C50C000868708 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041D4F9A282C50C000868708 /* ViewController.swift */; };
-		041D4F9E282C50C000868708 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 041D4F9C282C50C000868708 /* Main.storyboard */; };
 		041D4FA0282C50C100868708 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 041D4F9F282C50C100868708 /* Assets.xcassets */; };
 		041D4FA3282C50C100868708 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 041D4FA1282C50C100868708 /* LaunchScreen.storyboard */; };
+		04F4B8D4282D1083004ECF35 /* TranslatorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F4B8D3282D1083004ECF35 /* TranslatorVC.swift */; };
+		9DE76AB91BBE02C50ED638A8 /* Pods_GoogleTranslate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F1AFC4283D4E8BB67882FE1 /* Pods_GoogleTranslate.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		041D4F93282C50C000868708 /* GoogleTranslate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoogleTranslate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		041D4F96282C50C000868708 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		041D4F98282C50C000868708 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		041D4F9A282C50C000868708 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		041D4F9D282C50C000868708 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		041D4F9F282C50C100868708 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		041D4FA2282C50C100868708 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		041D4FA4282C50C100868708 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04F4B8D3282D1083004ECF35 /* TranslatorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatorVC.swift; sourceTree = "<group>"; };
+		4F1AFC4283D4E8BB67882FE1 /* Pods_GoogleTranslate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoogleTranslate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5CB5A1D2D37EF9E466534BB4 /* Pods-GoogleTranslate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoogleTranslate.release.xcconfig"; path = "Target Support Files/Pods-GoogleTranslate/Pods-GoogleTranslate.release.xcconfig"; sourceTree = "<group>"; };
+		BF1292F06F41A7404AC4CA05 /* Pods-GoogleTranslate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoogleTranslate.debug.xcconfig"; path = "Target Support Files/Pods-GoogleTranslate/Pods-GoogleTranslate.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +31,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DE76AB91BBE02C50ED638A8 /* Pods_GoogleTranslate.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +43,8 @@
 			children = (
 				041D4F95282C50C000868708 /* GoogleTranslate */,
 				041D4F94282C50C000868708 /* Products */,
+				372026271DB6789214289A92 /* Pods */,
+				932BD009743705375257B374 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,14 +60,29 @@
 			isa = PBXGroup;
 			children = (
 				041D4F96282C50C000868708 /* AppDelegate.swift */,
-				041D4F98282C50C000868708 /* SceneDelegate.swift */,
-				041D4F9A282C50C000868708 /* ViewController.swift */,
-				041D4F9C282C50C000868708 /* Main.storyboard */,
+				04F4B8D3282D1083004ECF35 /* TranslatorVC.swift */,
 				041D4F9F282C50C100868708 /* Assets.xcassets */,
 				041D4FA1282C50C100868708 /* LaunchScreen.storyboard */,
 				041D4FA4282C50C100868708 /* Info.plist */,
 			);
 			path = GoogleTranslate;
+			sourceTree = "<group>";
+		};
+		372026271DB6789214289A92 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BF1292F06F41A7404AC4CA05 /* Pods-GoogleTranslate.debug.xcconfig */,
+				5CB5A1D2D37EF9E466534BB4 /* Pods-GoogleTranslate.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		932BD009743705375257B374 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4F1AFC4283D4E8BB67882FE1 /* Pods_GoogleTranslate.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +92,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 041D4FA7282C50C100868708 /* Build configuration list for PBXNativeTarget "GoogleTranslate" */;
 			buildPhases = (
+				F39455228A5EA16242DD08A5 /* [CP] Check Pods Manifest.lock */,
 				041D4F8F282C50C000868708 /* Sources */,
 				041D4F90282C50C000868708 /* Frameworks */,
 				041D4F91282C50C000868708 /* Resources */,
+				C5974FEAA093BEC0B8ABFA16 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -127,34 +147,66 @@
 			files = (
 				041D4FA3282C50C100868708 /* LaunchScreen.storyboard in Resources */,
 				041D4FA0282C50C100868708 /* Assets.xcassets in Resources */,
-				041D4F9E282C50C000868708 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C5974FEAA093BEC0B8ABFA16 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GoogleTranslate/Pods-GoogleTranslate-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GoogleTranslate/Pods-GoogleTranslate-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GoogleTranslate/Pods-GoogleTranslate-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F39455228A5EA16242DD08A5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GoogleTranslate-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		041D4F8F282C50C000868708 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				041D4F9B282C50C000868708 /* ViewController.swift in Sources */,
+				04F4B8D4282D1083004ECF35 /* TranslatorVC.swift in Sources */,
 				041D4F97282C50C000868708 /* AppDelegate.swift in Sources */,
-				041D4F99282C50C000868708 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		041D4F9C282C50C000868708 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				041D4F9D282C50C000868708 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		041D4FA1282C50C100868708 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -284,6 +336,7 @@
 		};
 		041D4FA8282C50C100868708 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BF1292F06F41A7404AC4CA05 /* Pods-GoogleTranslate.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -294,7 +347,6 @@
 				INFOPLIST_FILE = GoogleTranslate/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -312,6 +364,7 @@
 		};
 		041D4FA9282C50C100868708 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5CB5A1D2D37EF9E466534BB4 /* Pods-GoogleTranslate.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -322,7 +375,6 @@
 				INFOPLIST_FILE = GoogleTranslate/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
