@@ -95,6 +95,7 @@ class TranslatorVC: UIViewController {
         let textField = UITextField()
         textField.placeholder = "Translate"
         textField.font = .systemFont(ofSize: 20)
+        textField.addTarget(nil, action: #selector(textFieldTextDidChange), for: .editingChanged)
         return textField
     }()
     let xBtn: UIButton = {
@@ -163,6 +164,12 @@ class TranslatorVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+    }
+    
+    @objc func textFieldTextDidChange() {
+        if textField.text! != "" {
+            print(textField.text!)
+        }
     }
 }
 
