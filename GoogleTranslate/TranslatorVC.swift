@@ -9,10 +9,28 @@ import UIKit
 import SnapKit
 
 class TranslatorVC: UIViewController {
-
-    let mainStackView = UIStackView()
-    let headerView = UIView()
-    let chooseLangView = UIView()
+    
+    let mainStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.distribution = .fill
+        stackView.alignment = .fill
+        stackView.spacing = 0
+        stackView.axis = .vertical
+        return stackView
+    }()
+    let headerView: UIView = {
+        let view = UIView()
+        view.backgroundColor = #colorLiteral(red: 0.2597777843, green: 0.5198658109, blue: 0.9554623961, alpha: 1)
+        view.snp.makeConstraints { make in
+            make.height.equalTo(60)
+        }
+        return view
+    }()
+    let chooseLangView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        return view
+    }()
     let headerLabel: UILabel = {
         let headerLabel = UILabel()
         headerLabel.text = "Google Translator"
@@ -21,137 +39,135 @@ class TranslatorVC: UIViewController {
         headerLabel.textAlignment = .center
         return headerLabel
     }()
-    let langFirstLabel = UILabel()
-    let langSecondLabel = UILabel()
-    let switchLangBtn = UIButton()
-    let chooseLangStackView = UIStackView()
-    let lineView = UIView()
-    let translatorView = UIView()
-    let translatorStackView = UIStackView()
-    let translatorLabel = UILabel()
-    let textField = UITextField()
-    let xBtn = UIButton()
-    let translatorSubStackView = UIStackView()
-    let resultView = UIView()
-    let resultContainerView = UIView()
-    let resultLangLabel = UILabel()
-    let resultLabel = UILabel()
-    let saveBtn = UIButton()
-    let resultStackView = UIStackView()
-    let resultSubStackView = UIStackView()
-    let tableView = UITableView()
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        view.backgroundColor = #colorLiteral(red: 0.9333333373, green: 0.9333333373, blue: 0.9333333373, alpha: 1)
-        
-        //headerView
-        headerView.backgroundColor = #colorLiteral(red: 0.2597777843, green: 0.5198658109, blue: 0.9554623961, alpha: 1)
-        headerView.snp.makeConstraints { make in
-            make.height.equalTo(60)
-        }
-        
-        //headerLabel
-
-        
-        //mainStackView
-        mainStackView.distribution = .fill
-        mainStackView.alignment = .fill
-        mainStackView.spacing = 0
-        mainStackView.axis = .vertical
-        
-        //langFirstBtn
-        langFirstLabel.text = "Uzbek"
-        langFirstLabel.textColor = .tintColor
-        
-        //langSecondBtn
-        langSecondLabel.text = "English"
-        langSecondLabel.textColor = .tintColor
-        
-        //switchLangBtn
-        switchLangBtn.setImage(UIImage(systemName: "arrow.left.arrow.right"), for: .normal)
-        
-        //chooseLangView
-        chooseLangView.backgroundColor = .white
-        
-        //chooseLangStackView
-        chooseLangStackView.axis = .horizontal
-        chooseLangStackView.alignment = .fill
-        chooseLangStackView.distribution = .equalSpacing
-        
-        //lineView
-        lineView.backgroundColor = .lightGray
-        lineView.snp.makeConstraints { make in
+    let langFirstLabel: UILabel = {
+        let lbl = UILabel()
+        lbl.text = "Uzbek"
+        lbl.textColor = .tintColor
+        return lbl
+    }()
+    let langSecondLabel: UILabel = {
+        let lbl = UILabel()
+        lbl.text = "English"
+        lbl.textColor = .tintColor
+        return lbl
+    }()
+    let switchLangBtn: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "arrow.left.arrow.right"), for: .normal)
+        return button
+    }()
+    let chooseLangStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.alignment = .fill
+        stackView.distribution = .equalSpacing
+        return stackView
+    }()
+    let lineView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .lightGray
+        view.snp.makeConstraints { make in
             make.height.equalTo(1)
         }
-        
-        //translatorView
-        translatorView.backgroundColor = .white
-        
-        //translatorStackView
-        translatorStackView.distribution = .fill
-        translatorStackView.alignment = .fill
-        translatorStackView.axis = .vertical
-        translatorStackView.spacing = 2
-        
-        //translatorLabel
-        translatorLabel.text = "Uzbek"
-        translatorLabel.textColor = .black
-        translatorLabel.font = .systemFont(ofSize: 14)
-        
-        //xBtn
-        xBtn.setImage(UIImage(systemName: "xmark"), for: .normal)
-        xBtn.tintColor = .black
-        
-        //textField
+        return view
+    }()
+    let translatorView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        return view
+    }()
+    let translatorStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.distribution = .fill
+        stackView.alignment = .fill
+        stackView.axis = .vertical
+        stackView.spacing = 2
+        return stackView
+    }()
+    let translatorLabel: UILabel = {
+        let lbl = UILabel()
+        lbl.text = "Uzbek"
+        lbl.textColor = .black
+        lbl.font = .systemFont(ofSize: 14)
+        return lbl
+    }()
+    let textField: UITextField = {
+        let textField = UITextField()
         textField.placeholder = "Translate"
         textField.font = .systemFont(ofSize: 20)
+        return textField
+    }()
+    let xBtn: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "xmark"), for: .normal)
+        button.tintColor = .black
+        return button
+    }()
+    let translatorSubStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.alignment = .fill
+        stackView.distribution = .equalSpacing
+        return stackView
+    }()
+    let resultView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .clear
+        return view
+    }()
+    let resultContainerView: UIView = {
+        let view = UIView()
+        view.backgroundColor = #colorLiteral(red: 0.2597777843, green: 0.5198658109, blue: 0.9554623961, alpha: 1)
+        view.clipsToBounds = true
+        view.layer.cornerRadius = 2
+        return view
+    }()
+    let resultLangLabel: UILabel = {
+        let lbl = UILabel()
+        lbl.text = "English"
+        lbl.textColor = .white
+        lbl.font = .systemFont(ofSize: 14)
+        return lbl
+    }()
+    let resultLabel: UILabel = {
+        let lbl = UILabel()
+        lbl.textColor = .white
+        lbl.font = .systemFont(ofSize: 20)
+        lbl.numberOfLines = 0
+        lbl.text = ""
+        return lbl
+    }()
+    let saveBtn: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "star"), for: .normal)
+        button.tintColor = .white
+        return button
+    }()
+    let resultStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.distribution = .fill
+        stackView.alignment = .fill
+        stackView.spacing = 5
+        return stackView
+    }()
+    let resultSubStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.alignment = .fill
+        stackView.distribution = .equalSpacing
+        return stackView
+    }()
+    let tableView = UITableView()
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
-        //translatorSubStackView
-        translatorSubStackView.axis = .horizontal
-        translatorSubStackView.alignment = .fill
-        translatorSubStackView.distribution = .equalSpacing
-        
-        //resultView
-        resultView.backgroundColor = .clear
-        
-        //resultContainerView
-        resultContainerView.backgroundColor = #colorLiteral(red: 0.2597777843, green: 0.5198658109, blue: 0.9554623961, alpha: 1)
-        resultContainerView.clipsToBounds = true
-        resultContainerView.layer.cornerRadius = 2
-        
-        //resultLangLabel
-        resultLangLabel.text = "English"
-        resultLangLabel.textColor = .white
-        resultLangLabel.font = .systemFont(ofSize: 14)
-        
-        //saveBtn
-        saveBtn.setImage(UIImage(systemName: "star"), for: .normal)
-        saveBtn.tintColor = .white
-        
-        //resultLabel
-        resultLabel.textColor = .white
-        resultLabel.font = .systemFont(ofSize: 20)
-        resultLabel.numberOfLines = 0
-        resultLabel.text = "Translated text test af sef sg sergsr g rdgrd gdr gdrg drg"
-        
-        //resultStackView
-        resultStackView.axis = .vertical
-        resultStackView.distribution = .fill
-        resultStackView.alignment = .fill
-        resultStackView.spacing = 5
-        
-        //resultSubStackView
-        resultSubStackView.axis = .horizontal
-        resultSubStackView.alignment = .fill
-        resultSubStackView.distribution = .equalSpacing
-        
-        //tableView
+        view.backgroundColor = #colorLiteral(red: 0.9333333373, green: 0.9333333373, blue: 0.9333333373, alpha: 1)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(CustomCell.self, forCellReuseIdentifier: "cell")
-        
         
         //resultView Layout
         resultSubStackView.addArrangedSubview(resultLangLabel)
