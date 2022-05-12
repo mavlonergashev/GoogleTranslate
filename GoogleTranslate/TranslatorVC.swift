@@ -13,7 +13,14 @@ class TranslatorVC: UIViewController {
     let mainStackView = UIStackView()
     let headerView = UIView()
     let chooseLangView = UIView()
-    let headerLabel = UILabel()
+    let headerLabel: UILabel = {
+        let headerLabel = UILabel()
+        headerLabel.text = "Google Translator"
+        headerLabel.font = .systemFont(ofSize: 20)
+        headerLabel.textColor = .white
+        headerLabel.textAlignment = .center
+        return headerLabel
+    }()
     let langFirstLabel = UILabel()
     let langSecondLabel = UILabel()
     let switchLangBtn = UIButton()
@@ -46,10 +53,7 @@ class TranslatorVC: UIViewController {
         }
         
         //headerLabel
-        headerLabel.text = "Google Translator"
-        headerLabel.font = .systemFont(ofSize: 20)
-        headerLabel.textColor = .white
-        headerLabel.textAlignment = .center
+
         
         //mainStackView
         mainStackView.distribution = .fill
@@ -146,7 +150,7 @@ class TranslatorVC: UIViewController {
         //tableView
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(CustomCell.self, forCellReuseIdentifier: CustomCell.identifierCell)
+        tableView.register(CustomCell.self, forCellReuseIdentifier: "cell")
         
         
         //resultView Layout
@@ -199,11 +203,17 @@ class TranslatorVC: UIViewController {
         mainStackView.addArrangedSubview(resultView)
         
         view.addSubview(mainStackView)
-        
+        view.addSubview(tableView)
         
         mainStackView.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(40)
             make.left.right.equalToSuperview()
+        }
+        
+        //tableView Layout
+        tableView.snp.makeConstraints { make in
+            make.top.equalTo(mainStackView.snp.bottom)
+            make.right.left.bottom.equalToSuperview()
         }
     }
 }
@@ -211,12 +221,11 @@ class TranslatorVC: UIViewController {
 //MARK: - Table View
 extension TranslatorVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //
-        return 0
+        return 12
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomCell
+        return cell
     }
 }

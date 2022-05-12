@@ -6,15 +6,18 @@
 //
 
 import UIKit
+import SnapKit
 
 class CustomCell: UITableViewCell {
     
     static let identifierCell = "cell"
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    let clearView = UIView()
+    let containerView = UIView()
+    let txtLabel = UILabel()
+        
+
+    func setUI() {
+        contentView.addSubview(clearView)
+        
     }
-
-
 }
