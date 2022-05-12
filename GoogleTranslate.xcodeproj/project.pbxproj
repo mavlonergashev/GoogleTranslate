@@ -10,6 +10,7 @@
 		041D4F97282C50C000868708 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041D4F96282C50C000868708 /* AppDelegate.swift */; };
 		041D4FA0282C50C100868708 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 041D4F9F282C50C100868708 /* Assets.xcassets */; };
 		041D4FA3282C50C100868708 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 041D4FA1282C50C100868708 /* LaunchScreen.storyboard */; };
+		042DACB2282D4EA600EA8343 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042DACB1282D4EA600EA8343 /* CustomCell.swift */; };
 		04F4B8D4282D1083004ECF35 /* TranslatorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F4B8D3282D1083004ECF35 /* TranslatorVC.swift */; };
 		9DE76AB91BBE02C50ED638A8 /* Pods_GoogleTranslate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F1AFC4283D4E8BB67882FE1 /* Pods_GoogleTranslate.framework */; };
 /* End PBXBuildFile section */
@@ -20,6 +21,7 @@
 		041D4F9F282C50C100868708 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		041D4FA2282C50C100868708 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		041D4FA4282C50C100868708 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		042DACB1282D4EA600EA8343 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		04F4B8D3282D1083004ECF35 /* TranslatorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatorVC.swift; sourceTree = "<group>"; };
 		4F1AFC4283D4E8BB67882FE1 /* Pods_GoogleTranslate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoogleTranslate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CB5A1D2D37EF9E466534BB4 /* Pods-GoogleTranslate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoogleTranslate.release.xcconfig"; path = "Target Support Files/Pods-GoogleTranslate/Pods-GoogleTranslate.release.xcconfig"; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 			isa = PBXGroup;
 			children = (
 				041D4F96282C50C000868708 /* AppDelegate.swift */,
+				042DACB1282D4EA600EA8343 /* CustomCell.swift */,
 				04F4B8D3282D1083004ECF35 /* TranslatorVC.swift */,
 				041D4F9F282C50C100868708 /* Assets.xcassets */,
 				041D4FA1282C50C100868708 /* LaunchScreen.storyboard */,
@@ -200,6 +203,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04F4B8D4282D1083004ECF35 /* TranslatorVC.swift in Sources */,
+				042DACB2282D4EA600EA8343 /* CustomCell.swift in Sources */,
 				041D4F97282C50C000868708 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

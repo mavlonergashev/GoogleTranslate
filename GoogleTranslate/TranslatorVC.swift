@@ -32,6 +32,7 @@ class TranslatorVC: UIViewController {
     let saveBtn = UIButton()
     let resultStackView = UIStackView()
     let resultSubStackView = UIStackView()
+    let tableView = UITableView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -129,7 +130,7 @@ class TranslatorVC: UIViewController {
         resultLabel.textColor = .white
         resultLabel.font = .systemFont(ofSize: 20)
         resultLabel.numberOfLines = 0
-        resultLabel.text = "test sfsdf  fesf sevfesgs srgz"
+        resultLabel.text = "Translated text test af sef sg sergsr g rdgrd gdr gdrg drg"
         
         //resultStackView
         resultStackView.axis = .vertical
@@ -142,8 +143,10 @@ class TranslatorVC: UIViewController {
         resultSubStackView.alignment = .fill
         resultSubStackView.distribution = .equalSpacing
         
-        
-        
+        //tableView
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(CustomCell.self, forCellReuseIdentifier: CustomCell.identifierCell)
         
         
         //resultView Layout
@@ -197,11 +200,23 @@ class TranslatorVC: UIViewController {
         
         view.addSubview(mainStackView)
         
+        
         mainStackView.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(40)
             make.left.right.equalToSuperview()
         }
-
     }
+}
 
+//MARK: - Table View
+extension TranslatorVC: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        //
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //
+        return UITableViewCell()
+    }
 }
