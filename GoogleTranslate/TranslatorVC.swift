@@ -174,6 +174,7 @@ extension TranslatorVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomCell
+        cell.updateCell(text: "Hello, how are you? - Salom, qandaysiz?")
         return cell
     }
 }
@@ -185,6 +186,9 @@ extension TranslatorVC {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(CustomCell.self, forCellReuseIdentifier: "cell")
+        tableView.separatorStyle = .none
+        tableView.allowsSelection = false
+        tableView.backgroundColor = .clear
         
         //resultView Layout
         resultSubStackView.addArrangedSubview(resultLangLabel)
@@ -245,7 +249,7 @@ extension TranslatorVC {
         
         //tableView Layout
         tableView.snp.makeConstraints { make in
-            make.top.equalTo(mainStackView.snp.bottom)
+            make.top.equalTo(mainStackView.snp.bottom).offset(10)
             make.right.left.bottom.equalToSuperview()
         }
     }

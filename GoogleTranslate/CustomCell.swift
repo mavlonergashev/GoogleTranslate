@@ -18,25 +18,36 @@ class CustomCell: UITableViewCell {
     }()
     let containerView: UIView = {
         let view = UIView()
-        view.backgroundColor = .systemGray5.withAlphaComponent(0.7)
+        view.clipsToBounds = true
+        view.layer.cornerRadius = 5
+        view.backgroundColor = .systemGray5
         return view
     }()
     let txtLabel: UILabel = {
         let lbl = UILabel()
         lbl.textColor = .black
+        lbl.textAlignment = .left
+        lbl.font = .systemFont(ofSize: 15)
         return lbl
     }()
         
     func configureUI() {
+        contentView.backgroundColor = .clear
+        self.backgroundColor = .clear
         contentView.addSubview(clearView)
         clearView.addSubview(containerView)
+        containerView.addSubview(txtLabel)
         
         clearView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
         containerView.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(16)
-            make.top.bottom.equalToSuperview().inset(8)
+            make.left.right.equalToSuperview().inset(8)
+            make.top.bottom.equalToSuperview().inset(4)
+        }
+        txtLabel.snp.makeConstraints { make in
+            make.top.bottom.equalToSuperview().inset(10)
+            make.left.right.equalToSuperview().inset(8)
         }
     }
     
