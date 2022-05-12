@@ -19,6 +19,12 @@ class TranslatorVC: UIViewController {
     let switchLangBtn = UIButton()
     let chooseLangStackView = UIStackView()
     let lineView = UIView()
+    let translatorView = UIView()
+    let translatorStackView = UIStackView()
+    let translatorLabel = UILabel()
+    let textField = UITextField()
+    let xBtn = UIButton()
+    let translatorSubStackView = UIStackView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +39,7 @@ class TranslatorVC: UIViewController {
         
         //headerLabel
         headerLabel.text = "Google Translator"
-        headerLabel.font = UIFont(name: "system", size: 20)
+        headerLabel.font = .systemFont(ofSize: 20)
         headerLabel.textColor = .white
         headerLabel.textAlignment = .center
         
@@ -54,6 +60,9 @@ class TranslatorVC: UIViewController {
         //switchLangBtn
         switchLangBtn.setImage(UIImage(systemName: "arrow.left.arrow.right"), for: .normal)
         
+        //chooseLangView
+        chooseLangView.backgroundColor = .white
+        
         //chooseLangStackView
         chooseLangStackView.axis = .horizontal
         chooseLangStackView.alignment = .fill
@@ -65,30 +74,66 @@ class TranslatorVC: UIViewController {
             make.height.equalTo(1)
         }
         
+        //translatorView
+        translatorView.backgroundColor = .white
+        
+        //translatorStackView
+        translatorStackView.distribution = .fill
+        translatorStackView.alignment = .fill
+        translatorStackView.axis = .vertical
+        translatorStackView.spacing = 2
+        
+        //translatorLabel
+        translatorLabel.text = "Uzbek"
+        translatorLabel.textColor = .black
+        translatorLabel.font = .systemFont(ofSize: 14)
+        
+        //xBtn
+        xBtn.setImage(UIImage(systemName: "xmark"), for: .normal)
+        xBtn.tintColor = .black
+        
+        //textField
+        textField.placeholder = "Translate"
+        textField.font = .systemFont(ofSize: 20)
+        
+        //translatorSubStackView
+        translatorSubStackView.axis = .horizontal
+        translatorSubStackView.alignment = .fill
+        translatorSubStackView.distribution = .equalSpacing
         
         
         
+        //translatorView Layout
+        translatorSubStackView.addArrangedSubview(translatorLabel)
+        translatorSubStackView.addArrangedSubview(xBtn)
+        translatorStackView.addArrangedSubview(translatorSubStackView)
+        translatorStackView.addArrangedSubview(textField)
+        translatorView.addSubview(translatorStackView)
+        translatorStackView.snp.makeConstraints { make in
+            make.edges.equalToSuperview().inset(16)
+        }
         
+        //headerView Layout
         headerView.addSubview(headerLabel)
         headerLabel.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
         
+        //chooseLangView Layout
         chooseLangStackView.addArrangedSubview(langFirstLabel)
         chooseLangStackView.addArrangedSubview(switchLangBtn)
         chooseLangStackView.addArrangedSubview(langSecondLabel)
-        
         chooseLangView.addSubview(chooseLangStackView)
         chooseLangStackView.snp.makeConstraints { make in
             make.left.right.top.bottom.equalToSuperview().inset(10)
         }
         
         
-        
-        
+        //mainStackView Layout
         mainStackView.addArrangedSubview(headerView)
         mainStackView.addArrangedSubview(chooseLangView)
         mainStackView.addArrangedSubview(lineView)
+        mainStackView.addArrangedSubview(translatorView)
         
         view.addSubview(mainStackView)
         
@@ -96,14 +141,7 @@ class TranslatorVC: UIViewController {
             make.top.equalToSuperview().inset(40)
             make.left.right.equalToSuperview()
         }
-        
 
-        
-
-
-        
     }
-    
-
 
 }
