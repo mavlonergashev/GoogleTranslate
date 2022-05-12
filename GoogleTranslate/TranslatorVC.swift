@@ -160,10 +160,27 @@ class TranslatorVC: UIViewController {
     }()
     let tableView = UITableView()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        configureUI()
+    }
+}
+
+//MARK: - Table View
+extension TranslatorVC: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 12
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomCell
+        return cell
+    }
+}
+
+//MARK: - ConfigureUI
+extension TranslatorVC {
+    func configureUI() {
         view.backgroundColor = #colorLiteral(red: 0.9333333373, green: 0.9333333373, blue: 0.9333333373, alpha: 1)
         tableView.delegate = self
         tableView.dataSource = self
@@ -231,17 +248,5 @@ class TranslatorVC: UIViewController {
             make.top.equalTo(mainStackView.snp.bottom)
             make.right.left.bottom.equalToSuperview()
         }
-    }
-}
-
-//MARK: - Table View
-extension TranslatorVC: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 12
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomCell
-        return cell
     }
 }
