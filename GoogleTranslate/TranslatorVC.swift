@@ -25,6 +25,13 @@ class TranslatorVC: UIViewController {
     let textField = UITextField()
     let xBtn = UIButton()
     let translatorSubStackView = UIStackView()
+    let resultView = UIView()
+    let resultContainerView = UIView()
+    let resultLangLabel = UILabel()
+    let resultLabel = UILabel()
+    let saveBtn = UIButton()
+    let resultStackView = UIStackView()
+    let resultSubStackView = UIStackView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -101,7 +108,60 @@ class TranslatorVC: UIViewController {
         translatorSubStackView.alignment = .fill
         translatorSubStackView.distribution = .equalSpacing
         
+        //resultView
+        resultView.backgroundColor = .clear
         
+        //resultContainerView
+        resultContainerView.backgroundColor = #colorLiteral(red: 0.2597777843, green: 0.5198658109, blue: 0.9554623961, alpha: 1)
+        resultContainerView.clipsToBounds = true
+        resultContainerView.layer.cornerRadius = 2
+        
+        //resultLangLabel
+        resultLangLabel.text = "English"
+        resultLangLabel.textColor = .white
+        resultLangLabel.font = .systemFont(ofSize: 14)
+        
+        //saveBtn
+        saveBtn.setImage(UIImage(systemName: "star"), for: .normal)
+        saveBtn.tintColor = .white
+        
+        //resultLabel
+        resultLabel.textColor = .white
+        resultLabel.font = .systemFont(ofSize: 20)
+        resultLabel.numberOfLines = 0
+        resultLabel.text = "test sfsdf  fesf sevfesgs srgz"
+        
+        //resultStackView
+        resultStackView.axis = .vertical
+        resultStackView.distribution = .fill
+        resultStackView.alignment = .fill
+        resultStackView.spacing = 5
+        
+        //resultSubStackView
+        resultSubStackView.axis = .horizontal
+        resultSubStackView.alignment = .fill
+        resultSubStackView.distribution = .equalSpacing
+        
+        
+        
+        
+        
+        //resultView Layout
+        resultSubStackView.addArrangedSubview(resultLangLabel)
+        resultSubStackView.addArrangedSubview(saveBtn)
+        resultStackView.addArrangedSubview(resultSubStackView)
+        resultStackView.addArrangedSubview(resultLabel)
+        resultContainerView.addSubview(resultStackView)
+        resultStackView.snp.makeConstraints { make in
+            make.left.right.equalToSuperview().inset(16)
+            make.top.bottom.equalToSuperview().inset(8)
+        }
+        resultView.addSubview(resultContainerView)
+        resultContainerView.snp.makeConstraints { make in
+            make.left.right.equalToSuperview().inset(8)
+            make.top.equalToSuperview().inset(16)
+            make.bottom.equalToSuperview()
+        }
         
         //translatorView Layout
         translatorSubStackView.addArrangedSubview(translatorLabel)
@@ -128,12 +188,12 @@ class TranslatorVC: UIViewController {
             make.left.right.top.bottom.equalToSuperview().inset(10)
         }
         
-        
         //mainStackView Layout
         mainStackView.addArrangedSubview(headerView)
         mainStackView.addArrangedSubview(chooseLangView)
         mainStackView.addArrangedSubview(lineView)
         mainStackView.addArrangedSubview(translatorView)
+        mainStackView.addArrangedSubview(resultView)
         
         view.addSubview(mainStackView)
         
