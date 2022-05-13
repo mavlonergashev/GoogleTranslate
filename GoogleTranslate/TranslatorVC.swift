@@ -176,7 +176,7 @@ class TranslatorVC: UIViewController {
     }
     
     @objc func textFieldTextDidChange() {
-//        translate(text: textField.text!, uzToEng: uzbekToEnglish)
+        translate(text: textField.text!, uzToEng: uzbekToEnglish)
     }
     
     @objc func xBtnPressed() {
