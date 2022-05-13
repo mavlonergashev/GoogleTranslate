@@ -138,7 +138,7 @@ class TranslatorVC: UIViewController {
         lbl.textColor = .white
         lbl.font = .systemFont(ofSize: 20)
         lbl.numberOfLines = 0
-        lbl.text = "fa fa fse fgesg"
+        lbl.text = ""
         return lbl
     }()
     let saveBtn: UIButton = {

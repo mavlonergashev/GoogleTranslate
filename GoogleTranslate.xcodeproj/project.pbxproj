@@ -13,6 +13,7 @@
 		042DACB2282D4EA600EA8343 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042DACB1282D4EA600EA8343 /* CustomCell.swift */; };
 		04B97977282DBB4200B41A7A /* Extionsions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B97976282DBB4200B41A7A /* Extionsions.swift */; };
 		04B97979282DD6B400B41A7A /* TranslateDM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B97978282DD6B400B41A7A /* TranslateDM.swift */; };
+		04F22A6B282E6C2F000B564B /* SplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F22A6A282E6C2F000B564B /* SplashVC.swift */; };
 		04F4B8D4282D1083004ECF35 /* TranslatorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F4B8D3282D1083004ECF35 /* TranslatorVC.swift */; };
 		9DE76AB91BBE02C50ED638A8 /* Pods_GoogleTranslate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F1AFC4283D4E8BB67882FE1 /* Pods_GoogleTranslate.framework */; };
 /* End PBXBuildFile section */
@@ -26,6 +27,7 @@
 		042DACB1282D4EA600EA8343 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		04B97976282DBB4200B41A7A /* Extionsions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extionsions.swift; sourceTree = "<group>"; };
 		04B97978282DD6B400B41A7A /* TranslateDM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateDM.swift; sourceTree = "<group>"; };
+		04F22A6A282E6C2F000B564B /* SplashVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashVC.swift; sourceTree = "<group>"; };
 		04F4B8D3282D1083004ECF35 /* TranslatorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatorVC.swift; sourceTree = "<group>"; };
 		4F1AFC4283D4E8BB67882FE1 /* Pods_GoogleTranslate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoogleTranslate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CB5A1D2D37EF9E466534BB4 /* Pods-GoogleTranslate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoogleTranslate.release.xcconfig"; path = "Target Support Files/Pods-GoogleTranslate/Pods-GoogleTranslate.release.xcconfig"; sourceTree = "<group>"; };
@@ -66,9 +68,10 @@
 			isa = PBXGroup;
 			children = (
 				041D4F96282C50C000868708 /* AppDelegate.swift */,
-				042DACB1282D4EA600EA8343 /* CustomCell.swift */,
 				04B97976282DBB4200B41A7A /* Extionsions.swift */,
 				04B97978282DD6B400B41A7A /* TranslateDM.swift */,
+				042DACB1282D4EA600EA8343 /* CustomCell.swift */,
+				04F22A6A282E6C2F000B564B /* SplashVC.swift */,
 				04F4B8D3282D1083004ECF35 /* TranslatorVC.swift */,
 				041D4F9F282C50C100868708 /* Assets.xcassets */,
 				041D4FA1282C50C100868708 /* LaunchScreen.storyboard */,
@@ -213,6 +216,7 @@
 				042DACB2282D4EA600EA8343 /* CustomCell.swift in Sources */,
 				04B97977282DBB4200B41A7A /* Extionsions.swift in Sources */,
 				041D4F97282C50C000868708 /* AppDelegate.swift in Sources */,
+				04F22A6B282E6C2F000B564B /* SplashVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -15,7 +15,7 @@ var window: UIWindow?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         window = UIWindow()
-        window?.rootViewController = TranslatorVC()
+        window?.rootViewController = SplashVC()
         window?.makeKeyAndVisible()
         
         return true
