@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import RealmSwift
 
 class TranslatorVC: UIViewController {
     
@@ -54,6 +55,7 @@ class TranslatorVC: UIViewController {
     let switchLangBtn: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "arrow.left.arrow.right"), for: .normal)
+        button.addTarget(nil, action: #selector(switchLangBtnPressed), for: .touchUpInside)
         return button
     }()
     let chooseLangStackView: UIStackView = {
@@ -136,7 +138,7 @@ class TranslatorVC: UIViewController {
         lbl.textColor = .white
         lbl.font = .systemFont(ofSize: 20)
         lbl.numberOfLines = 0
-        lbl.text = ""
+        lbl.text = "fa fa fse fgesg"
         return lbl
     }()
     let saveBtn: UIButton = {
@@ -163,30 +165,63 @@ class TranslatorVC: UIViewController {
     }()
     let tableView = UITableView()
     var uzbekToEnglish = true
+    var realm: Realm!
+    var translateHistory: [TranslateHistory] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        realm = try! Realm()
+        fetchFromDataBase()
     }
     
     @objc func textFieldTextDidChange() {
-        if textField.text! != "" {
-            print(textField.text!)
-        }
+//        translate(text: textField.text!, uzToEng: uzbekToEnglish)
     }
     
     @objc func xBtnPressed() {
         textField.text = ""
         textField.resignFirstResponder()
+        xBtn.shake()
     }
     
     @objc func saveBtnPressed() {
-        
+        if textField.text! != "" || resultLabel.text! != "" {
+            let history = TranslateHistory()
+            history.text = textField.text! + " - " + resultLabel.text!
+            translateHistory.append(history)
+            writeToDataBase(history: history)
+            self.tableView.reloadSections(IndexSet(integer: .zero), with: .automatic)
+            saveBtn.scale(by: 1.2)
+        }
     }
     
     @objc func switchLangBtnPressed() {
         uzbekToEnglish = !uzbekToEnglish
         updateUI()
+        switchLangBtn.rotateBy180()
+    }
+}
+
+//MARK: - Realm
+extension TranslatorVC {
+    func writeToDataBase(history: TranslateHistory) {
+        try! realm.write({
+            self.realm.add(history)
+        })
+    }
+    
+    func fetchFromDataBase() {
+        translateHistory = realm.objects(TranslateHistory.self).compactMap {$0}
+        self.tableView.reloadSections(IndexSet(integer: .zero), with: .automatic)
+    }
+    
+    func removeFromDataBase(index: Int) {
+        try! realm.write({
+            self.realm.delete(translateHistory[index])
+            self.translateHistory.remove(at: index)
+            self.tableView.reloadSections(IndexSet(integer: .zero), with: .automatic)
+        })
     }
 }
 
@@ -194,13 +229,20 @@ class TranslatorVC: UIViewController {
 extension TranslatorVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 12
+        return translateHistory.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomCell
-        cell.updateCell(text: "Test - Test")
+        cell.updateCell(text: translateHistory[indexPath.row].text!)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        return UISwipeActionsConfiguration(actions: [UIContextualAction(style: .destructive, title: "Delete", handler: { _, _, _ in
+            //Delete
+            self.removeFromDataBase(index: indexPath.row)
+        })])
     }
 }
 
@@ -304,4 +346,55 @@ extension TranslatorVC {
             make.right.left.bottom.equalToSuperview()
         }
     }
+}
+
+//MARK: - GetTranslatedText
+extension TranslatorVC {
+    
+    func translate(text: String, uzToEng: Bool) {
+        let headers = [
+            "content-type": "application/x-www-form-urlencoded",
+            "Accept-Encoding": "application/gzip",
+            "X-RapidAPI-Host": "google-translate1.p.rapidapi.com",
+            "X-RapidAPI-Key": "4c5777ce7amsh477ad4817315bf2p191555jsn28a7bba29229"
+        ]
+        let postData = NSMutableData(data: "q=\(text)".data(using: String.Encoding.utf8)!)
+        
+        if uzToEng {
+            postData.append("&target=en".data(using: String.Encoding.utf8)!)
+            postData.append("&source=uz".data(using: String.Encoding.utf8)!)
+        } else {
+            postData.append("&target=uz".data(using: String.Encoding.utf8)!)
+            postData.append("&source=en".data(using: String.Encoding.utf8)!)
+        }
+        
+        let request = NSMutableURLRequest(url: NSURL(string: "https://google-translate1.p.rapidapi.com/language/translate/v2")! as URL,
+                                          cachePolicy: .useProtocolCachePolicy,
+                                          timeoutInterval: 10.0)
+        request.httpMethod = "POST"
+        request.allHTTPHeaderFields = headers
+        request.httpBody = postData as Data
+        
+        let session = URLSession.shared
+        let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
+            if (error != nil) {
+                print(error!.localizedDescription)
+            } else {
+                if let safeData = data {
+                    let decoder = JSONDecoder()
+                    do {
+                        let decodedData = try decoder.decode(TranslateDM.self, from: safeData)
+                        let result = decodedData.data.translations.first?.translatedText
+                        DispatchQueue.main.async {
+                            self.resultLabel.text = result
+                        }
+                    } catch {
+                        print(error.localizedDescription)
+                    }
+                }
+            }
+        })
+        dataTask.resume()
+    }
+    
 }
